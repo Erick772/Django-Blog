@@ -1,17 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
+from django.views.generic import TemplateView
 
 from .models import Post
 
-def index(request):
-	return render(request, 'index.html')
+class PostView(TemplateView):
+	template_name = 'blog/post.html'
 
-def post_view(request, post_id):
-	if Post.objects.filter(id=post_id).count() == 0:
-		return HttpResponse('Erro 404: página não encontrada.')
-	
-	context = {
-		'POST': Post.objects.get(id=post_id)
-	}
-	
-	return render(request, 'single.html', context)
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+
+		if 'post_id' in kwargs.keys():
+			if not Post.objects.filter(id=kwargs['post_id']).exists():
+				raise Http404
+			else:
+				context['post'] = Post.objects.get(id=post_id)
+
+		return context
