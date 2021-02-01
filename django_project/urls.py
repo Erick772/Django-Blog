@@ -14,15 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.views.generic import ListView
+from django.urls import path, include
 
-from blog.views import post_view, index
-from blog.models import Post
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-	#path('', index, name='index'),
-	path('', ListView.as_view(template_name='index.html', model=Post, paginate_by=3), name='index'),
-	path('post/<post_id>/', post_view, name='post'),
+	path('', include(('blog.urls', 'blog'), namespace='blog')),
+
     path('admin/', admin.site.urls),
 ]
+
+# Ativa os arquivos de mídia (/media/)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
