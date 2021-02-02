@@ -93,40 +93,40 @@
                     <header class="entry__header">
 
                         <h2 class="entry__title h1">
-                            <a href="single.html" title="">{{POST.title}}</a>
+                            <a href="single.html" title="">{{post.title}}</a>
                         </h2>
 
                         <div class="entry__meta">
                             <ul>
-                                <li>{{POST.pub_date}}</li>
-                                <li><a href="#" title="" rel="category tag">{{POST.category}}</a></li>
-                                <li>{{POST.author.username}}</li>
+                                <li>{{post.pub_date}}</li>
+                                <li><a href="#" title="" rel="category tag">{{post.category}}</a></li>
+                                <li>{{post.author.username}}</li>
                             </ul>
                         </div>
                      
                     </header> <!-- entry__header -->
 
                     <div class="entry__content-media">
-                        <img src="/{{POST.picture}}" 
-                             srcset="/{{POST.picture}} 1000w, 
-                                     /{{POST.picture}} 500w" 
+                        <img src="{{post.picture.url}}" 
+                             srcset="{{post.picture.url}} 1000w, 
+                                     {{post.picture.url}} 500w" 
                              sizes="(max-width: 1000px) 100vw, 1000px" alt="">
                     </div>
 
                     <div class="entry__content">
-						{{POST.content|linebreaksbr}}<br><br>
+						{{post.content|linebreaksbr}}<br><br>
                     </div> <!-- entry__content -->
 
                     <p class="entry__tags">
                         <span>Tagged in </span>:
                         <a href="#0">orci</a>, <a href="#0">lectus</a>, <a href="#0">varius</a>, <a href="#0">turpis</a>
                     </p>
-
+<!--
                     <ul class="entry__post-nav h-group">
                         <li class="prev"><a rel="prev" href="#0"><strong class="h6">Previous Article</strong> Duis Sed Odio Sit Amet Nibh Vulputate</a></li>
                         <li class="next"><a rel="next" href="#0"><strong class="h6">Next Article</strong> Morbi Elit Consequat Ipsum</a></li>
                     </ul>
-
+-->
                 </article> <!-- end entry -->
 
                 <div class="comments-wrap">
