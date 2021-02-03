@@ -1,4 +1,5 @@
 # Django-Blog
+
 ## Screenshot
 
 ![Home page screenshot](screenshots/screenshot1.png)
@@ -17,7 +18,7 @@ Activate the virtual environment:
 
 ```source env/bin/activate```
 
-Install requirements:
+Install the requirements:
 
 ```pip install -r requirements.txt```
 
