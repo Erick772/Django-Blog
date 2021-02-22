@@ -18,7 +18,7 @@ Activate the virtual environment:
 
 ```source env/bin/activate```
 
-Install the requirements:
+Install requirements:
 
 ```pip install -r requirements.txt```
 
@@ -26,7 +26,7 @@ Migrate:
 
 ```python manage.py migrate```
 
-Create superuser:
+Create the super user:
 
 ```python manage.py createsuperuser```
 
